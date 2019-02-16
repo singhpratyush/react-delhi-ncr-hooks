@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { updateValue } from '../firebaseUtils';
+
 const FunctionalComponent = () => {
   const [inputValue, setInputValue] = useState('');
   return (
@@ -14,7 +16,14 @@ const FunctionalComponent = () => {
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
         />
-        <button>Update!</button>
+        <button
+          onClick={() => {
+            updateValue(inputValue);
+            setInputValue('');
+          }}
+        >
+          Update!
+        </button>
       </div>
     </div>
   );
