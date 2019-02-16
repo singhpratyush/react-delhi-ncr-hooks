@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { updateValue } from '../firebaseUtils';
+import StyleContext from '../StyleContext';
 
 export default class ClassComponent extends React.Component {
   constructor(props) {
@@ -29,23 +30,27 @@ export default class ClassComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          Hi, I am the class component.
-        </div>
-        <div>
-          <input
-            type="number"
-            value={this.state.inputValue}
-            onChange={this.handleValueChange}
-          />
-          <button
-            onClick={this.handleUpdateValueClick}
-          >
-            Update!
-          </button>
-        </div>
-      </div>
+      <StyleContext.Consumer>
+        {(myStyleClass) => (
+          <div className={myStyleClass}>
+            <div>
+              Hi, I am the class component.
+            </div>
+            <div>
+              <input
+                type="number"
+                value={this.state.inputValue}
+                onChange={this.handleValueChange}
+              />
+              <button
+                onClick={this.handleUpdateValueClick}
+              >
+                Update!
+              </button>
+            </div>
+          </div>
+        )}
+      </StyleContext.Consumer>
     );
   }
 }

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { updateValue } from '../firebaseUtils';
+import StyleContext from '../StyleContext';
 
 const FunctionalComponent = () => {
   const [inputValue, setInputValue] = useState('');
+  const myStyleClass = useContext(StyleContext);
+
   return (
-    <div>
+    <div className={myStyleClass}>
       <div>
         Hi, I am the functional component.
       </div>
