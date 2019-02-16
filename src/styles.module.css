@@ -1,0 +1,45 @@
+.class {
+  font-family: 'Roboto';
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.class > div {
+  margin-bottom: 16px;
+}
+
+.class input {
+  padding: 8px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-family: monospace;
+  color: rgba(0, 255, 0, 0.54);
+  margin-right: 8px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.54);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.class input:focus {
+  border-bottom: 2px solid rgba(0, 255, 0);
+  transition: all 0.3s ease;
+}
+
+.class button {
+  padding: 10px;
+  font-size: 16px;
+  background: white;
+  border: 1px solid yellow;
+  border-radius: 2px;
+  outline: none;
+  font-family: 'Roboto';
+  color: rgba(0, 0, 0, 0.54);
+  transition: all 0.3s ease;
+}
+
+.class button:hover {
+  background: rgba(255, 255, 0, 0.54);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 2px rgba(0, 255, 0, 0.54);
+}

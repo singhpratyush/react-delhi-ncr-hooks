@@ -33,7 +33,6 @@ export default class ClassComponent extends React.Component {
         <div>
           Hi, I am the class component.
         </div>
-
         <div>
           <input
             type="number"
