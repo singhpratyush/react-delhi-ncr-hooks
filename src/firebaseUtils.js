@@ -18,7 +18,7 @@ export const getFirestore = () => firebase.firestore();
 export const getCountRef = () => getFirestore().collection('counter').doc('counter');
 
 export const updateValue = newValue => getCountRef().update({
-  value: newValue,
+  value: typeof newValue === 'string' ? parseInt(newValue) : newValue,
   time: new Date().toLocaleString(),
 });
 
@@ -28,5 +28,5 @@ const incrementCounter = () => {
     const { value } = doc.data();
     return updateValue(value + 1);
   });
-  setTimeout(() => incrementCounter(), 5000);
+  setTimeout(() => incrementCounter(), 1000);
 };
