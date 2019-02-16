@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'uikit/dist/css/uikit.min.css';
+
+import { init } from './firebaseUtils';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+init();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
