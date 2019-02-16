@@ -10,7 +10,7 @@ export const init = () => {
     messagingSenderId: "142216739935"
   };
   firebase.initializeApp(config);
-  // incrementCounter();
+  incrementCounter();
 }
 
 export const getFirestore = () => firebase.firestore();

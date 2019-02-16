@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { updateValue } from '../firebaseUtils';
+import { updateValue, getCountRef } from '../firebaseUtils';
 import StyleContext from '../StyleContext';
 
 export default class ClassComponent extends React.Component {
@@ -9,10 +9,24 @@ export default class ClassComponent extends React.Component {
 
     this.state = {
       inputValue: '',
+      value: '',
+      time: '',
     }
 
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleUpdateValueClick = this.handleUpdateValueClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.firebaseListener = getCountRef()
+      .onSnapshot((doc) => {
+        const { value, time } = doc.data();
+        this.setState({ value, time });
+      })
+  }
+
+  componentWillUnmount() {
+    this.firebaseListener();
   }
 
   handleValueChange(event) {
@@ -47,6 +61,11 @@ export default class ClassComponent extends React.Component {
               >
                 Update!
               </button>
+            </div>
+
+            <div>
+              <h2>{this.state.value}</h2>
+              <h3>{this.state.time}</h3>
             </div>
           </div>
         )}
