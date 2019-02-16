@@ -3,10 +3,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { updateValue, getCountRef } from '../firebaseUtils';
 import StyleContext from '../StyleContext';
 
-const FunctionalComponent = () => {
-  const [inputValue, setInputValue] = useState('');
-  const myStyleClass = useContext(StyleContext);
-
+const useFirebaseValue = () => {
   const [valueObj, setValueObj] = useState({
     value: '',
     time: '',
@@ -22,6 +19,14 @@ const FunctionalComponent = () => {
       return () => firebaseListener();
     },
   );
+
+  return valueObj;
+};
+
+const FunctionalComponent = () => {
+  const [inputValue, setInputValue] = useState('');
+  const myStyleClass = useContext(StyleContext);
+  const valueObj = useFirebaseValue();
 
   return (
     <div className={myStyleClass}>
